@@ -23,11 +23,25 @@ int rev_bits(uint32_t num)
 	}
 	return result;
 }
+// another methode to aproach
+int rev_bits_2(uint32_t num)
+{
+	for(int i=0,j=31;i<j;i++,j--)
+	{
+		if(((num>>i)&1) != ((num>>j)&1))
+		{
+			num ^= (1<<i);
+			num ^= (1<<j);
+		}
+	}
+	return num;
+}
+
 int main()
 {
 	int num = 15;
 	print(num);
-	num = rev_bits(num);
+	num = rev_bits_2(num);
 	printf("After reverse\n");
 	print(num);
 
