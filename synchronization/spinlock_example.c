@@ -19,7 +19,7 @@ void spin_unlock(volatile int *lock)
 void *task(void *arg)
 {
 	spin_lock(&lock);
-	printf("task is running\n");
+	printf("task %d is in critical section\n",*(int *)arg);
 	// do some quick work
 	
 	spin_unlock(&lock);
@@ -28,8 +28,9 @@ void *task(void *arg)
 
 int main()
 {
+	int id = 1;
 	pthread_t t;
-	pthread_create(&t, NULL, task, NULL);
+	pthread_create(&t, NULL, task, &id);
 	pthread_join(t, NULL);
 
 	return 0;
