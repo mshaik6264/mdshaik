@@ -1,5 +1,5 @@
 #ifndef HEADER_S_FILES
-
+#define HEADER_S_FILES
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,6 +12,5 @@
 #include <sys/stat.h>
 #include <sys/ipc.h>
 #include <sys/msg.h>
-
 
 #endif
